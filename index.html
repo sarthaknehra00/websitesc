@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+  
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Global Autism Learning School</title>
+<meta name="description" content="Empowering every child to learn, grow & thrive. A specialized autism learning school in Delhi offering therapy, education and developmental programs.">
+<style>
+  @layer base {
+    html, body { margin: 0; padding: 0; background-color: #101010; color: #ffffff; }
+    body { overscroll-behavior: none; scroll-behavior: smooth; }
+    main > :first-child { margin-top: 0 !important; }
+    main > :last-child { margin-bottom: 0 !important; }
+  }
+  ::-webkit-scrollbar { display: none; }
+
+  /* ── Animations ── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+  }
+  @keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(44px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes blobPulse {
+    0%, 100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+    50%       { border-radius: 40% 60% 45% 55% / 60% 40% 50% 50%; }
+  }
+  @keyframes countUp { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+  @keyframes sparkle {
+    0%,100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50%      { transform: scale(1.25) rotate(10deg); opacity: 0.8; }
+  }
+  @keyframes waveX {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-float   { animation: float 7s ease-in-out infinite; }
+  .animate-slide-up { opacity: 0; animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .animate-fade-in  { opacity: 0; animation: fadeIn 1s ease forwards; }
+  .d100 { animation-delay: 100ms; }
+  .d200 { animation-delay: 200ms; }
+  .d300 { animation-delay: 300ms; }
+  .d400 { animation-delay: 400ms; }
+  .d500 { animation-delay: 500ms; }
+  .d600 { animation-delay: 600ms; }
+  .d700 { animation-delay: 700ms; }
+
+  /* Scrolling fade-up */
+  .fade-up-element {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .fade-up-element.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* Blob shape for hero image */
+  .blob-shape { animation: blobPulse 10s ease-in-out infinite; }
+
+  /* Ticker */
+  .ticker-track { animation: waveX 30s linear infinite; }
+
+  /* Card hover */
+  .program-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .program-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,63,179,0.12); }
+
+  /* Floating contact */
+  .floating-contact { position: fixed; right: 24px; bottom: 120px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
+  .floating-contact a { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 22px; box-shadow: 0 6px 20px rgba(0,0,0,.18); transition: transform .3s; }
+  .floating-contact a:hover { transform: translateY(-4px); }
+  .wa-btn { background: #25D366; }
+  .ph-btn { background: #003fb3; }
+  @media (max-width:640px) {
+    .floating-contact { right: 0; left: 0; bottom: 0; flex-direction: row; gap: 0; }
+    .floating-contact a { width: 50%; height: 58px; border-radius: 0; font-size: 20px; }
+  }
+
+  /* Mega-menu placeholder styling */
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #003fb3; transition: width .3s; }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Stats count animation trigger */
+  .stat-number { animation: countUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+
+  /* Floating contact fixes */
+  .ph-btn { background: #2563eb !important; }
+  .wa-btn { background: #25D366 !important; }
+
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-primary-fixed-variant": "#003cac",
+          "on-surface-variant": "#a0a0a0",
+          "on-surface": "#ffffff",
+          "tertiary-container": "#cfa621",
+          "primary-container": "#2558d5",
+          "on-primary-container": "#d6ddff",
+          "primary-fixed": "#1e293b",
+          "primary-fixed-dim": "#0f172a",
+          "secondary": "#a63a20",
+          "secondary-container": "#fd795a",
+          "on-secondary-container": "#6e1400",
+          "secondary-fixed": "#331610",
+          "secondary-fixed-dim": "#220e0a",
+          "on-secondary-fixed": "#f8c5ba",
+          "tertiary-fixed": "#3a2d0b",
+          "tertiary-fixed-dim": "#261e07",
+          "on-tertiary-fixed": "#fae3a0",
+          "surface-container-lowest": "#101010",
+          "surface-container-low": "#161616",
+          "surface-container": "#1a1a1a",
+          "surface-container-high": "#202020",
+          "surface-container-highest": "#282828",
+          "outline": "#404040",
+          "outline-variant": "#303030",
+          "surface-variant": "#dae2ff",
+          "surface-cream": "#141414",
+          "surface": "#101010",
+          "background": "#101010",
+          "inverse-surface": "#080808",
+          "inverse-on-surface": "#ffffff",
+          "primary": "#003fb3",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "on-background": "#ffffff",
+          "on-primary-fixed": "#e2e8f0",
+          "accent-coral-pale": "#F9B8A9",
+          "surface-teal": "#00817D",
+        },
+        fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"], serif: ["Bodoni Moda", "serif"] },
+        fontSize: {
+          "display-lg": ["56px", { lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "800" }],
+          "display-lg-mobile": ["36px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
+          "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "700" }],
+          "headline-md": ["24px", { lineHeight: "1.4", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "1.7", fontWeight: "500" }],
+          "body-md": ["16px", { lineHeight: "1.6", fontWeight: "500" }],
+          "label-lg": ["14px", { lineHeight: "1.2", letterSpacing: "0.02em", fontWeight: "700" }],
+          "label-md": ["12px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "700" }],
+        },
+        spacing: {
+          "gutter": "32px",
+          "section-desktop": "120px",
+          "section-mobile": "64px",
+          "margin-desktop": "48px",
+          "margin-mobile": "20px",
+          "container-max": "1280px",
+        },
+        borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", "2xl": "2rem", full: "9999px" }
+      }
+    }
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body class="bg-background font-sans text-on-background">
+
+<!-- Floating Contact Buttons -->
+<div class="floating-contact">
+  <a href="https://wa.me/919625554548" class="wa-btn" target="_blank" aria-label="WhatsApp">
+    <svg width="24" height="24" fill="#101010" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="tel:+919625554548" class="ph-btn" aria-label="Call us">
+    <svg width="22" height="22" fill="#101010" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<header class="fixed top-0 w-full z-50 transition-all duration-300" id="site-header">
+  <!-- Top Bar -->
+  <div class="bg-[#050505] border-b border-[#222] text-white text-label-md hidden md:block">
+    <div class="max-w-[1280px] mx-auto px-12 py-2 flex justify-between items-center">
+      <div class="flex items-center gap-6">
+        <a href="tel:+919625554548" class="flex items-center gap-2 hover:text-tertiary-fixed transition-colors">
+          <span class="material-symbols-outlined text-[14px]">call</span> +91 9625554548
+        </a>
+        <a href="mailto:info@globalautismlearningschool.com" class="flex items-center gap-2 hover:text-tertiary-fixed transition-colors">
+          <span class="material-symbols-outlined text-[14px]">mail</span> info@globalautismlearningschool.com
+        </a>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[14px]">location_on</span>
+        <span>277 Gagan Vihar, Delhi 110051</span>
+      </div>
+    </div>
+  </div>
+  <!-- Main Nav -->
+  <div class="bg-surface-container-lowest shadow-sm">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="logo_upscaled.png" alt="Global Autism Learning School Logo" class="h-16 w-auto object-contain">
+      </div>
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#" class="nav-link text-label-lg text-blue-400 font-bold border-b-2 border-primary pb-1">Home</a>
+        <a href="#about" class="nav-link text-label-lg text-on-surface hover:text-blue-400 transition-colors">About Us</a>
+        <a href="#programs" class="nav-link text-label-lg text-on-surface hover:text-blue-400 transition-colors">Programs</a>
+        <a href="#services" class="nav-link text-label-lg text-on-surface hover:text-blue-400 transition-colors">Services</a>
+        <a href="#therapists" class="nav-link text-label-lg text-on-surface hover:text-blue-400 transition-colors">Therapists</a>
+        <a href="#contact" class="nav-link text-label-lg text-on-surface hover:text-blue-400 transition-colors">Contact Us</a>
+      </nav>
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-tertiary-fixed text-on-tertiary-fixed px-6 py-2.5 rounded-full text-label-lg hover:bg-tertiary-fixed-dim transition-colors shadow-sm">
+          Enquire Now
+        </a>
+        <!-- Mobile menu button -->
+        <button class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-surface-container" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-on-surface">menu</span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="hidden lg:hidden bg-surface-container-lowest border-t border-outline-variant/30 px-8 pb-6" id="mobile-menu">
+      <nav class="flex flex-col gap-4 pt-4">
+        <a href="#" class="text-label-lg text-blue-400 font-bold">Home</a>
+        <a href="#about" class="text-label-lg text-on-surface hover:text-blue-400">About Us</a>
+        <a href="#programs" class="text-label-lg text-on-surface hover:text-blue-400">Programs</a>
+        <a href="#services" class="text-label-lg text-on-surface hover:text-blue-400">Services</a>
+        <a href="#therapists" class="text-label-lg text-on-surface hover:text-blue-400">Therapists</a>
+        <a href="#contact" class="text-label-lg text-on-surface hover:text-blue-400">Contact Us</a>
+        <a href="#contact" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.4)] text-white hover:bg-blue-500 px-6 py-3 rounded-full text-label-lg mt-2">Enquire Now</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="w-full pt-[calc(40px+80px)] md:pt-[calc(40px+80px)]" id="main-content">
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION — Dynamic + Animated
+  ═══════════════════════════════════════════ -->
+  <section class="relative bg-[#101010] overflow-hidden pt-20 pb-32 lg:pt-24 lg:pb-44">
+    <!-- Background decorative shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/5"></div>
+      <div class="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-secondary-container/10"></div>
+      <div class="absolute -bottom-16 right-1/4 w-80 h-80 rounded-full bg-tertiary-fixed/10"></div>
+      <!-- Animated particle dots -->
+      <div class="absolute top-16 left-16 w-3 h-3 rounded-full bg-tertiary-fixed/60" style="animation: float 5s 0.5s ease-in-out infinite;"></div>
+      <div class="absolute top-32 right-1/3 w-2 h-2 rounded-full bg-secondary-fixed/60" style="animation: float 7s 1s ease-in-out infinite;"></div>
+      <div class="absolute bottom-20 left-1/4 w-4 h-4 rounded-full bg-tertiary-fixed/40" style="animation: float 6s 0.2s ease-in-out infinite;"></div>
+      <div class="absolute top-3/4 right-16 w-2.5 h-2.5 rounded-full bg-accent-coral-pale/50" style="animation: float 4s 1.5s ease-in-out infinite;"></div>
+    </div>
+
+    <!-- Desktop hero image — right side -->
+    <div class="absolute right-0 top-0 w-5/12 h-full hidden lg:block overflow-hidden" style="clip-path: ellipse(110% 100% at 100% 50%);">
+      <img
+        alt="Happy child learning at Global Autism Learning School"
+        class="w-full h-full object-cover animate-float"
+        src="hero_upscaled.jpg"
+      >
+      <div class="absolute inset-0 bg-gradient-to-r from-[#101010] via-[#101010]/50 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div class="flex flex-col gap-6">
+        <!-- Badge -->
+        <div class="animate-slide-up d100 inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 w-fit">
+          <span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+          <span class="text-blue-400-fixed-dim text-label-lg uppercase tracking-widest">Delhi's Trusted Autism School</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-sans font-extrabold text-on-primary leading-tight">
+          <div class="animate-slide-up d200 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            Empowering Every
+          </div>
+          <div class="animate-slide-up d300 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            Child to <span class="text-tertiary-fixed">Learn,</span>
+          </div>
+          <div class="animate-slide-up d400 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            <span class="text-secondary-fixed-dim">Grow</span> &amp; <span class="text-accent-coral-pale">Thrive</span>
+          </div>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="animate-slide-up d500 text-on-primary/85 text-[18px] leading-relaxed max-w-[500px]">
+          A specialized autism learning school in Delhi offering expert therapy, education and developmental programs to help children reach their full potential.
+        </p>
+
+        <!-- CTAs -->
+        <div class="animate-slide-up d600 flex flex-wrap gap-4 mt-4">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-blue-400 px-8 py-4 rounded-full font-bold text-[15px] hover:bg-surface-container-low transition-all duration-300 shadow-md hover:-translate-y-1 hover:shadow-xl">
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+            Enquire Now
+          </a>
+          <a href="#programs" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-on-primary px-8 py-4 rounded-full font-bold text-[15px] hover:bg-white/5 transition-all duration-300">
+            <span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Our Programs
+          </a>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="animate-slide-up d700 flex flex-wrap gap-6 mt-2">
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">20+</div>
+            <div class="text-on-primary/70 text-label-md">Therapy Programs</div>
+          </div>
+          <div class="w-px bg-white/20 self-stretch hidden sm:block"></div>
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">500+</div>
+            <div class="text-on-primary/70 text-label-md">Children Supported</div>
+          </div>
+          <div class="w-px bg-white/20 self-stretch hidden sm:block"></div>
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">98%</div>
+            <div class="text-on-primary/70 text-label-md">Parent Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile hero image -->
+      <div class="lg:hidden mt-8 relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-2xl animate-fade-in d500 blob-shape">
+        <img
+          alt="Happy child learning"
+          class="w-full h-full object-cover"
+          src="hero_upscaled.jpg"
+        >
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-12 md:h-16"><path d="M0,32L80,26.7C160,21,320,11,480,16C640,21,800,43,960,48C1120,53,1280,43,1360,37.3L1440,32L1440,60L0,60Z" fill="#101010"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST PILLARS
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a] text-blue-400 text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Why Choose Us?</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Helping Children Reach Their Full Potential</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Every child is unique. Our expert team designs personalised programs that nurture growth at every level — academic, social, emotional and physical.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card">
+          <div class="w-14 h-14 bg-[#1a1a1a] text-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">person_check</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Individualised Learning</h3>
+          <p class="text-body-md text-on-surface-variant">Tailored educational pathways that respect each child's unique developmental profile and goals.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 100ms;">
+          <div class="w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">favorite</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Supportive Environment</h3>
+          <p class="text-body-md text-on-surface-variant">Sensory-friendly spaces designed to reduce anxiety and promote focused, joyful engagement.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 200ms;">
+          <div class="w-14 h-14 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">psychology</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Holistic Development</h3>
+          <p class="text-body-md text-on-surface-variant">Integrating academic, social, emotional and physical growth into every daily activity.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 300ms;">
+          <div class="w-14 h-14 bg-[#151515] text-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">diversity_1</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Family Partnership</h3>
+          <p class="text-body-md text-on-surface-variant">Working hand-in-hand with parents to ensure consistency between school and home life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest" id="about">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="flex flex-col gap-6 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a] text-blue-400 text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 w-fit">About Us</span>
+        <h2 class="text-headline-lg text-on-surface leading-tight">More than a school. A community built for every child.</h2>
+        <div class="flex flex-col gap-4 text-body-lg text-on-surface-variant">
+          <p>Global Autism Learning School is a leading autism-focused institution in Delhi dedicated to empowering children on the autism spectrum through expert education and therapy.</p>
+          <p>Founded by educators and allied health professionals, our integrated model ensures that therapy and education happen seamlessly side-by-side — because we believe that when the environment adapts to the child, true potential is unlocked.</p>
+        </div>
+        <div class="mt-2">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] text-white hover:bg-blue-500 px-8 py-3 rounded-full font-bold text-label-lg hover:bg-[#151515] border-y border-[#333] hover:text-white transition-colors duration-300">
+            <span class="material-symbols-outlined text-[18px]">info</span>
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+      <div class="relative fade-up-element" style="transition-delay: 150ms;">
+        <div class="rounded-[28px] overflow-hidden aspect-[16/9] shadow-lg">
+          <img alt="Teacher and student working together" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_xYV9rOpC0Bal9nfqGb5B0n9LSTt3V8KWChpnZWTv2KtA5spN4yOWlFVqnizSfbU0RY2GqCUsqnKQKyj_I90ts5Cb7pkGqxm4s27QVvC4SXtTm6_-nymQtD6rYYVwkYb5_uExXcb1MLRi4uxYv6dlWUblSvuv_eNzoSWkVE44Xyk-Bidvu8C_evBEVoTu7H-0yq0GNtLd68B8T8pPWLSWLbG634xbnb0rDWPhx7t-Flzb2rN_8i2Wkg">
+        </div>
+        <!-- floating badge -->
+        <div class="absolute -bottom-5 -left-5 bg-surface-container-lowest rounded-2xl shadow-lg p-4 flex items-center gap-3 border border-outline-variant/30">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[20px]">verified</span>
+          </div>
+          <div>
+            <div class="font-bold text-on-surface text-[13px]">Expert Team</div>
+            <div class="text-on-surface-variant text-[12px]">15+ Specialists on staff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROGRAMS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream" id="programs">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a] text-blue-400 text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Our Programs</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Structured Programs for Every Stage</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">From early intervention to independent living, we have a program designed around every child's needs and growth journey.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Program Cards -->
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card">
+          <div class="w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">child_care</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Infant Stimulation Program</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Early multi-sensory stimulation for infants to support cognitive and physical development.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:80ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">sentiment_very_satisfied</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Early Sensory Exploration</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Guided sensory play activities to build sensory processing and body awareness.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:160ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">toys</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Tiny Toddlers</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Play-based learning and socialisation skills for toddlers in a nurturing small-group setting.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:240ms;">
+          <div class="w-12 h-12 bg-[#151515] rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">group</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Early Intervention Group</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Targeted group sessions to strengthen communication, behaviour and social participation.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:320ms;">
+          <div class="w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">menu_book</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Beginner Learning Group</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Introduction to pre-academic concepts through structured, hands-on activities.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:400ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">record_voice_over</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Communication &amp; Social Skills</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Building expressive language, listening, and peer interaction skills.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:480ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">calculate</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Functional Academics</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Life-relevant academic skills including literacy, numeracy and basic concepts.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:560ms;">
+          <div class="w-12 h-12 bg-[#151515] rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">home</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Independent Living Skills</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Daily life skills including self-care, hygiene, safety and household tasks.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest" id="services">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a] text-blue-400 text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Our Services</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Comprehensive Therapy &amp; Support</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Our multidisciplinary team provides a full spectrum of evidence-based therapeutic services tailored to each child.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service items -->
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">check</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Autism Intervention Program</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Structured ABA and developmental therapy to build foundational skills.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:60ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">record_voice_over</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Speech &amp; Language Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Unlocking verbal and non-verbal communication potential.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:120ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">accessibility_new</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Occupational Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Building daily independence, fine motor skills and sensory integration.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:180ms;">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">psychology_alt</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Behavioral Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Evidence-based strategies to reduce challenging behaviours and reinforce positive ones.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:240ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">school</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Special Education</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">IEP-driven academic support aligned with each child's learning goals.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:300ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">music_note</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Music &amp; Play Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Using music and play to develop communication, social and emotional skills.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:360ms;">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">palette</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Art &amp; Creative Activities</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Creative expression to boost confidence, focus and fine motor development.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:420ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">family_restroom</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Parent Counseling &amp; Training</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Empowering families with tools and strategies to support their child at home.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:480ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">sensors</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Sensory Integration Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Specialised therapy to improve sensory processing and regulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       IMPACT COUNTER SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-20 bg-[#1a1a1a] relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5"></div>
+      <div class="absolute bottom-0 left-10 w-48 h-48 rounded-full bg-tertiary-fixed/10"></div>
+    </div>
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 relative z-10">
+      <div class="text-center mb-12 fade-up-element">
+        <h2 class="text-headline-lg text-on-primary">Our Impact in Numbers</h2>
+        <p class="text-on-primary/70 text-body-lg mt-3">Supporting children and families through specialised education, therapy and developmental programs.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center fade-up-element">
+          <div class="text-tertiary-fixed text-[52px] font-extrabold leading-none" data-count="20">20+</div>
+          <div class="text-on-primary/80 text-body-md mt-2">Therapy &amp; Learning Programs</div>
+        </div>
+        <div class="text-center fade-up-element" style="transition-delay:100ms;">
+          <div class="text-tertiary-fixed text-[52px] font-extrabold leading-none">500+</div>
+          <div class="text-on-primary/80 text-body-md mt-2">Children Supported</div>
+        </div>
+        <div class="text-center fade-up-element" style="transition-delay:200ms;">
+          <div class="text-tertiary-fixed text-[52px] font-extrabold leading-none">10+</div>
+          <div class="text-on-primary/80 text-body-md mt-2">Years of Experience</div>
+        </div>
+        <div class="text-center fade-up-element" style="transition-delay:300ms;">
+          <div class="text-tertiary-fixed text-[52px] font-extrabold leading-none">98%</div>
+          <div class="text-on-primary/80 text-body-md mt-2">Parent Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ═══════════════════════════════════════════
+       THERAPISTS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream" id="therapists">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-primary-fixed text-[#60a5fa] text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Our Team</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Expert Therapists &amp; Specialists</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">A dedicated multidisciplinary team of allied health professionals working collaboratively for your child.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Therapist pills -->
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card">
+          <div class="w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">record_voice_over</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Speech Therapist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:60ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">hearing</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Audiologist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:120ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">accessibility_new</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Occupational Therapist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:180ms;">
+          <div class="w-12 h-12 bg-primary-fixed-dim rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">school</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Special Educator</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:240ms;">
+          <div class="w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">psychology</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Child Psychologist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:300ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">psychology_alt</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Clinical Psychologist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:360ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">family_restroom</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Family Counselor</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:420ms;">
+          <div class="w-12 h-12 bg-primary-fixed-dim rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">directions_run</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Physiotherapist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:480ms;">
+          <div class="w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-blue-400 text-[22px]">palette</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Art Therapist</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 flex flex-col items-center gap-3 text-center border border-outline-variant/30 fade-up-element program-card" style="transition-delay:540ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">music_note</span></div>
+          <span class="text-body-md text-on-surface font-bold text-[13px]">Music Therapist</span>
+        </div>
+      </div>
+
+      <!-- Featured Doctor Profile Cards -->
+      <div class="mt-16">
+        <h3 class="text-headline-md text-on-surface text-center mb-10 fade-up-element">Meet Our Key Specialists</h3>
+        <div class="flex flex-wrap justify-center gap-8">
+
+          <!-- Dr. Murli Singh -->
+          <div class="bg-surface-container-lowest rounded-[28px] shadow-md border border-outline-variant/30 overflow-hidden w-72 fade-up-element program-card">
+            <div class="relative h-72 overflow-hidden bg-surface-container">
+              <img src="dr_murli_singh.jpg" alt="Dr. Murli Singh" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105">
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block bg-blue-600 hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.4)] text-white hover:bg-blue-500 text-label-md px-3 py-1.5 rounded-full shadow-md">Speech Therapist &amp; Audiologist</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="font-bold text-on-surface text-[18px]">Dr. Murli Singh</h4>
+              <p class="text-on-surface-variant text-body-md mt-1 text-[14px]">Leading specialist in speech therapy and audiology with extensive experience supporting children with autism spectrum disorder.</p>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+                <span class="text-label-md text-on-surface-variant uppercase tracking-widest">Speech &amp; Hearing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dr. Charu Arora -->
+          <div class="bg-surface-container-lowest rounded-[28px] shadow-md border border-outline-variant/30 overflow-hidden w-72 fade-up-element program-card" style="transition-delay:150ms;">
+            <div class="relative h-72 overflow-hidden bg-surface-container">
+              <img src="dr_charu_arora.jpg" alt="Dr. Charu Arora" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105">
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="inline-block bg-secondary-container text-on-secondary-container text-label-md px-3 py-1.5 rounded-full shadow-md">Occupational Therapist (OT)</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h4 class="font-bold text-on-surface text-[18px]">Dr. Charu Arora</h4>
+              <p class="text-on-surface-variant text-body-md mt-1 text-[14px]">Expert occupational therapist specialising in sensory integration, fine motor development and daily living skills for neurodivergent children.</p>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+                <span class="text-label-md text-on-surface-variant uppercase tracking-widest">Occupational Therapy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SPECIAL DIET SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest">
+    <div class="max-w-[1024px] mx-auto px-8 md:px-12 flex flex-col items-center text-center fade-up-element">
+        <span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 w-fit mb-4">Nutrition</span>
+        <h2 class="text-headline-lg text-on-surface mb-4">Autism Special Customised Diet Available</h2>
+        <p class="text-body-lg text-on-surface-variant max-w-2xl mb-12">We understand that nutrition plays a vital role in the development and well-being of children with autism. Our customised diet program is designed to support each child's unique needs.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left w-full max-w-4xl">
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Autism-Specific Customised Diet Plans</span>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Freshly Prepared Meals Every Day</span>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Pure Desi Ghee-Based Cooking</span>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Healthy Breakfast, Lunch &amp; Fresh Fruits</span>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Clean &amp; Hygienic Kitchen Environment</span>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-cream transition-colors">
+                <span class="material-symbols-outlined text-tertiary-container text-[28px] flex-shrink-0">check_circle</span>
+                <span class="text-body-md text-on-surface font-bold mt-1">Individualised Nutritional Planning</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream" id="contact">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="max-w-[860px] mx-auto bg-surface-container-lowest rounded-[32px] shadow-xl p-8 md:p-14 border border-outline-variant/30 fade-up-element">
+        <div class="text-center mb-10">
+          <span class="inline-block bg-primary-fixed text-[#60a5fa] text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Get In Touch</span>
+          <h2 class="text-headline-lg text-on-surface mt-2">Contact with Us</h2>
+          <p class="text-body-lg text-on-surface-variant mt-3">Have questions about our programs or services? Get in touch with our team to learn how we can support your child's developmental journey.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <a href="tel:+919625554548" class="flex flex-col items-center gap-3 p-6 bg-[#181818] border border-[#333] rounded-2xl hover:bg-primary-fixed-dim transition-colors group hover:-translate-y-1 hover:border-[#444] hover:shadow-2xl transition-all duration-300">
+            <div class="w-12 h-12 bg-blue-600 hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.4)] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-on-primary text-[22px]">call</span>
+            </div>
+            <span class="text-label-lg text-on-surface">Phone</span>
+            <span class="text-white font-bold">+91 9625554548</span>
+          </a>
+          <a href="mailto:info@globalautismlearningschool.com" class="flex flex-col items-center gap-3 p-6 bg-[#181818] border border-[#333] rounded-2xl hover:bg-primary-fixed-dim transition-colors group hover:-translate-y-1 hover:border-[#444] hover:shadow-2xl transition-all duration-300">
+            <div class="w-12 h-12 bg-blue-600 hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.4)] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-on-primary text-[22px]">mail</span>
+            </div>
+            <span class="text-label-lg text-on-surface">Email</span>
+            <span class="text-white font-bold text-[12px]">info@globalautismlearningschool.com</span>
+          </a>
+          <div class="flex flex-col items-center gap-3 p-6 bg-[#181818] border border-[#333] rounded-2xl hover:-translate-y-1 hover:border-[#444] hover:shadow-2xl transition-all duration-300">
+            <div class="w-12 h-12 bg-blue-600 hover:bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.4)] rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary text-[22px]">location_on</span>
+            </div>
+            <span class="text-label-lg text-on-surface">Address</span>
+            <span class="text-white font-bold text-center text-[13px]">277 Gagan Vihar, Delhi 110051</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="bg-inverse-surface pt-16 pb-8">
+  <div class="max-w-[1280px] mx-auto px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <!-- Brand -->
+    <div class="col-span-1 lg:col-span-1">
+      <div class="flex items-center gap-3 mb-5">
+        <img src="logo_upscaled.png" alt="Global Autism Learning School Logo" class="h-16 w-auto object-contain bg-white rounded-lg p-2">
+      </div>
+      <p class="text-body-md text-inverse-on-surface/70 leading-relaxed">Empowering every child to learn, grow and thrive through expert autism education and therapy in Delhi.</p>
+      <div class="flex gap-4 mt-5">
+        <a href="https://wa.me/919625554548" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+          <svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="tel:+919625554548" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-white text-[16px]">call</span>
+        </a>
+        <a href="mailto:info@globalautismlearningschool.com" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-white text-[16px]">mail</span>
+        </a>
+      </div>
+    </div>
+    <!-- Programs -->
+    <div class="flex flex-col gap-3">
+      <h4 class="text-label-lg text-inverse-on-surface uppercase tracking-widest">Programs</h4>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Infant Stimulation Program</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Tiny Toddlers</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Early Intervention Group</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Communication &amp; Social Skills</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Independent Living Skills</a>
+    </div>
+    <!-- Services -->
+    <div class="flex flex-col gap-3">
+      <h4 class="text-label-lg text-inverse-on-surface uppercase tracking-widest">Services</h4>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Speech &amp; Language Therapy</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Occupational Therapy</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Behavioral Therapy</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Special Education</a>
+      <a class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors" href="#">Sensory Integration</a>
+    </div>
+    <!-- Contact -->
+    <div class="flex flex-col gap-3">
+      <h4 class="text-label-lg text-inverse-on-surface uppercase tracking-widest">Contact</h4>
+      <p class="text-body-md text-inverse-on-surface/70">277 Gagan Vihar, Delhi 110051</p>
+      <a href="tel:+919625554548" class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors">+91 9625554548</a>
+      <a href="mailto:info@globalautismlearningschool.com" class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors text-[13px]">info@globalautismlearningschool.com</a>
+      <a href="https://globalautismlearningschool.com" class="text-body-md text-inverse-on-surface/70 hover:text-tertiary-fixed transition-colors">globalautismlearningschool.com</a>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-8 md:px-12 mt-12 pt-6 border-t border-white/10 text-center text-label-md text-inverse-on-surface/50">
+    © 2025 Global Autism Learning School, Delhi. All Rights Reserved. Empowering Every Child.
+  </div>
+</footer>
+
+<script>
+  // Intersection observer for scroll animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up-element').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Header shadow on scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+    });
+
+    // Close mobile menu when links clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  });
+</script>
+
+
+
+<!-- ══════════════════════════════════════
+     INTERACTIVE STAR CANVAS
+══════════════════════════════════════ -->
+<canvas
+  id="star-canvas"
+  style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9000;
+    opacity: 1;
+    mix-blend-mode: screen;
+  "
+  aria-hidden="true"
+></canvas>
+
+<script>
+(function() {
+  const canvas = document.getElementById('star-canvas');
+  const ctx = canvas.getContext('2d');
+
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  let mouse = { x: W / 2, y: H / 2 };
+  let scrollY = 0;
+
+  // ── Config ──────────────────────────────────────────────────
+  const STAR_COUNT     = 200;
+  const MIN_SIZE       = 1.0;
+  const MAX_SIZE       = 2.8;
+  const PARALLAX_ZONES = 3;       // depth layers
+  const CURSOR_RADIUS  = 120;     // px - glow/repel zone
+  const REPEL_FORCE    = 22;      // how far stars move away from cursor
+  const GLOW_BOOST     = 1.2;     // extra opacity near cursor
+  // ────────────────────────────────────────────────────────────
+
+  // Seeded PRNG (mulberry32)
+  let seed = 0x9f;
+  function rand() {
+    seed = (seed + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+
+  // Star pool
+  const stars = [];
+  function initStars() {
+    stars.length = 0;
+    for (let i = 0; i < STAR_COUNT; i++) {
+      const depth = Math.floor(rand() * PARALLAX_ZONES); // 0 = back, 2 = front
+      const r     = MIN_SIZE + rand() * (MAX_SIZE - MIN_SIZE) * ((depth + 1) / PARALLAX_ZONES);
+      stars.push({
+        // Logical position as fraction of page (0–1 × 0–docH)
+        lx:          rand(),          // 0..1
+        ly:          rand(),          // 0..1 * totalH  (computed on resize)
+        r,
+        depth,                        // 0,1,2
+        baseAlpha:   0.55 + rand() * 0.45,
+        twinkleSpeed:0.3  + rand() * 1.2,
+        twinklePhase:rand() * Math.PI * 2,
+        // Gold tint chance for a few stars
+        gold:        rand() < 0.12,
+        // Current screen position (computed each frame)
+        sx: 0, sy: 0,
+        // Offset from cursor repel
+        ox: 0, oy: 0,
+      });
+    }
+  }
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = W;
+    canvas.height = H;
+    initStars();
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', e => {
+    if (e.touches.length) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+  }, { passive: true });
+
+  // ── Render loop ──────────────────────────────────────────────
+  let lastT = 0;
+  function draw(ts) {
+    const t   = ts / 1000;
+    const dt  = Math.min(0.05, t - lastT);
+    lastT     = t;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const docH = Math.max(document.documentElement.scrollHeight, H);
+
+    for (let i = 0; i < stars.length; i++) {
+      const s = stars[i];
+
+      // Parallax: back stars move less with scroll, front stars more
+      const parallaxFactor = 0.15 + s.depth * 0.25; // 0.15, 0.4, 0.65
+      const rawSY = s.ly * docH - scrollY * parallaxFactor;
+
+      // Only render if on-screen (with margin)
+      const margin = 40;
+      if (rawSY < -margin || rawSY > H + margin) continue;
+
+      s.sx = s.lx * W;
+      s.sy = rawSY;
+
+      // ── Cursor repel ──
+      const dx  = s.sx - mouse.x;
+      const dy  = s.sy - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      let targetOx = 0;
+      let targetOy = 0;
+
+      if (dist < CURSOR_RADIUS && dist > 0.1) {
+        const force = (1 - dist / CURSOR_RADIUS) * REPEL_FORCE;
+        targetOx = (dx / dist) * force;
+        targetOy = (dy / dist) * force;
+      }
+
+      s.ox += (targetOx - s.ox) * 0.09;
+      s.oy += (targetOy - s.oy) * 0.09;
+
+      const px = s.sx + s.ox;
+      const py = s.sy + s.oy;
+
+      // ── Twinkle ──
+      const twinkle = 0.55 + 0.45 * Math.sin(t * s.twinkleSpeed * Math.PI * 2 + s.twinklePhase);
+
+      // ── Glow near cursor ──
+      const nearCursor = dist < CURSOR_RADIUS ? (1 - dist / CURSOR_RADIUS) * GLOW_BOOST : 0;
+      const alpha = Math.min(1, s.baseAlpha * twinkle + nearCursor * 0.5);
+
+      // ── Draw ──
+      const glowSize = s.r * (2.5 + nearCursor * 3);
+      const color    = s.gold ? '255,200,80' : '140,130,255';
+      const baseColor= s.gold ? '255,230,120' : '180,170,255';
+
+      // Glow halo
+      if (alpha > 0.1 && glowSize > 1.5) {
+        const g = ctx.createRadialGradient(px, py, 0, px, py, glowSize);
+        g.addColorStop(0,   `rgba(${color},${(alpha * 0.35).toFixed(3)})`);
+        g.addColorStop(1,   `rgba(${color},0)`);
+        ctx.beginPath();
+        ctx.arc(px, py, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+
+      // Star core
+      ctx.beginPath();
+      ctx.arc(px, py, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${baseColor},${alpha.toFixed(3)})`;
+      ctx.fill();
+
+
+      // Cross-sparkle on bright stars near cursor
+      if (nearCursor > 0.3 && s.r > 1.3) {
+        const len  = s.r * (3 + nearCursor * 5);
+        const cAlp = (nearCursor * 0.6).toFixed(3);
+        ctx.save();
+        ctx.strokeStyle = `rgba(${baseColor},${cAlp})`;
+        ctx.lineWidth   = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(px - len, py); ctx.lineTo(px + len, py);
+        ctx.moveTo(px, py - len); ctx.lineTo(px, py + len);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+})();
+</script>
+
+</body>
+</html>

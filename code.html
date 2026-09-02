@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<style>
+  @layer base {
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior: none; scroll-behavior: smooth; }
+    main > :first-child { margin-top: 0 !important; }
+    main > :last-child { margin-bottom: 0 !important; }
+  }
+  ::-webkit-scrollbar { display: none; }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-fixed-variant": "#003cac",
+                "on-surface-variant": "#434654",
+                "on-tertiary-fixed-variant": "#584400",
+                "on-tertiary-container": "#4f3d00",
+                "on-surface": "#0b1a3b",
+                "tertiary-container": "#cfa621",
+                "on-secondary-fixed-variant": "#86230a",
+                "primary-container": "#2558d5",
+                "on-secondary-fixed": "#3d0700",
+                "on-error": "#ffffff",
+                "primary-fixed-dim": "#b5c4ff",
+                "error": "#ba1a1a",
+                "surface-variant": "#dae2ff",
+                "surface-teal": "#00817D",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#212f52",
+                "inverse-primary": "#b5c4ff",
+                "on-primary-fixed": "#00174d",
+                "surface-container-highest": "#dae2ff",
+                "inverse-on-surface": "#eef0ff",
+                "outline-variant": "#c3c5d6",
+                "tertiary": "#755b00",
+                "on-secondary-container": "#6e1400",
+                "secondary-container": "#fd795a",
+                "outline": "#747685",
+                "surface-container": "#eaedff",
+                "accent-coral-pale": "#F9B8A9",
+                "error-container": "#ffdad6",
+                "on-background": "#0b1a3b",
+                "surface-tint": "#1f54d1",
+                "on-primary-container": "#d6ddff",
+                "surface-container-low": "#f2f3ff",
+                "surface-dim": "#ced9ff",
+                "surface-container-high": "#e2e7ff",
+                "on-secondary": "#ffffff",
+                "secondary": "#a63a20",
+                "primary": "#003fb3",
+                "primary-fixed": "#dbe1ff",
+                "surface-bright": "#faf8ff",
+                "secondary-fixed": "#ffdad2",
+                "on-error-container": "#93000a",
+                "surface-cream": "#FCF9F4",
+                "surface": "#faf8ff",
+                "secondary-fixed-dim": "#ffb4a3",
+                "background": "#faf8ff",
+                "on-tertiary-fixed": "#241a00",
+                "tertiary-fixed": "#ffe08e",
+                "tertiary-fixed-dim": "#edc13e",
+                "on-primary": "#ffffff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "32px",
+                "section-desktop": "120px",
+                "margin-desktop": "48px",
+                "margin-mobile": "20px",
+                "section-mobile": "64px",
+                "container-max": "1280px"
+        },
+        "fontFamily": {
+                "label-lg": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+                "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "500"}],
+                "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "label-md": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}]
+        }
+      }
+    }
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest shadow-sm transition-all duration-300">
+<div class="h-20 max-w-container-max mx-auto px-margin-desktop flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img alt="Serene Growth Academy Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTPeNWL-baWd9rF-tq8RSLJCFTXOBwYL0JRM3MHUSJ7RAArtj-MGGY64ML3yZSjf4-N4xV2qmG4o1FwTiodvwy8E-M3hSnqEYIDSTfZ8ZbDO_HgD-nV4qQVV5UM5-PPI9RQNGtWRPDgYVAcSf1ZCe2YYO_mG7zfaFrkSQ5E00T9WiqTu5PW4Cgxcuo-_3JKHVoAXbLjXwDha-UQ26UXbNqu_NonLSkoV3zYgLvHpFj5KiJgzPzJknYw">
+<span class="hidden lg:block font-headline-md text-primary tracking-tight">Serene Growth</span>
+</div>
+<nav class="hidden md:flex items-center bg-transparent gap-8" data-active-classes="text-primary font-bold">
+<a aria-current="page" class="transition-all text-primary font-bold border-b-2 border-primary pb-1" data-path="home" href="#">Home</a>
+<a class="text-label-lg text-on-surface hover:text-primary transition-all pb-1" data-path="about-us" href="#">About Us</a>
+<a class="text-label-lg text-on-surface hover:text-primary transition-all pb-1" data-path="programs" href="#">Programs</a>
+<a class="text-label-lg text-on-surface hover:text-primary transition-all pb-1" data-path="services" href="#">Services</a>
+<a class="text-label-lg text-on-surface hover:text-primary transition-all pb-1" data-path="therapists" href="#">Therapists</a>
+<a class="text-label-lg text-on-surface hover:text-primary transition-all pb-1" data-path="contact-us" href="#">Contact Us</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex bg-tertiary-fixed text-on-tertiary-fixed px-6 py-2.5 rounded-full text-label-lg hover:bg-tertiary-fixed-dim transition-colors shadow-sm">
+        Donate
+      </button>
+<button class="bg-primary-container text-on-primary-container w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="w-full pt-20">
+<!-- Hero Section -->
+<section class="relative bg-primary pt-24 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
+<div class="absolute inset-0 z-0 hidden lg:block">
+<!-- Organic curve clipping right side image -->
+<div class="absolute right-0 top-0 w-1/2 h-full" style="clip-path: ellipse(120% 100% at 100% 50%);">
+<img alt="Child smiling on swing" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLEi22DPJ5CzUb1fANwx9Me4SPAOhaJFX4Lbhmdkyqsi0CSkOnRsTNlzgntry2rJQwBj9GvvvsbA3VroLakmWmDJLhcGC_KQzxuWcEtv76-0v-KLUQTxKNIoy8OBQIL4lQREoe-Dier1Ce5SSmL0vS0-Qk8l2E7P411J_J3MXao5yzFjmzPzmkrZYp9s9cUGaCuqDhWfxXFwqJHgGkrgRRq6BjOAje0tl97EcpoGcq1LQw3fH_2UIDFA">
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-6 animate-fade-in-up">
+<div class="flex items-center gap-2 text-primary-fixed-dim font-label-lg uppercase tracking-wider mb-2">
+<span class="">Our Services</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="">Serene Growth Schools</span>
+</div>
+<h1 class="font-display-lg text-on-primary leading-tight">
+          Learning.<br>
+<span class="text-secondary-fixed">Growing.</span><br>
+          Belonging.
+        </h1>
+<p class="font-body-lg text-on-primary max-w-[500px]">
+          A safe, supportive learning environment designed to help children on the autism spectrum build confidence, independence, communication and lifelong skills.
+        </p>
+<div class="flex flex-wrap items-center gap-4 mt-8">
+<a class="inline-flex items-center justify-center bg-surface-container-lowest text-primary px-8 py-4 rounded-full font-label-lg hover:bg-surface-container-low transition-colors duration-300 shadow-md" href="#contact">
+            Enquire now
+          </a>
+</div>
+</div>
+<!-- Mobile Hero Image -->
+<div class="lg:hidden mt-12 relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl">
+<img alt="Child smiling on swing" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLEi22DPJ5CzUb1fANwx9Me4SPAOhaJFX4Lbhmdkyqsi0CSkOnRsTNlzgntry2rJQwBj9GvvvsbA3VroLakmWmDJLhcGC_KQzxuWcEtv76-0v-KLUQTxKNIoy8OBQIL4lQREoe-Dier1Ce5SSmL0vS0-Qk8l2E7P411J_J3MXao5yzFjmzPzmkrZYp9s9cUGaCuqDhWfxXFwqJHgGkrgRRq6BjOAje0tl97EcpoGcq1LQw3fH_2UIDFA">
+</div>
+</div>
+</section>
+<!-- Trust / Introduction Section -->
+<section class="py-section-desktop bg-surface-cream">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="max-w-[800px] mx-auto mb-16 fade-up-element text-center is-visible">
+<h2 class="font-headline-lg text-on-surface">Every child deserves the opportunity to thrive.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element is-visible">
+<div class="w-14 h-14 bg-primary-fixed text-on-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">person_check</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-[20px]">Individualised Learning</h3>
+<p class="font-body-md text-on-surface-variant">Tailored educational pathways that respect and respond to each child's unique profile.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element is-visible" style="transition-delay: 100ms;">
+<div class="w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">favorite</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-[20px]">Supportive Environment</h3>
+<p class="font-body-md text-on-surface-variant">Sensory-friendly spaces designed to reduce anxiety and promote focused engagement.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element is-visible" style="transition-delay: 200ms;">
+<div class="w-14 h-14 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">psychology</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-[20px]">Holistic Development</h3>
+<p class="font-body-md text-on-surface-variant">Integrating academic, social, emotional, and physical growth into everyday activities.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element is-visible" style="transition-delay: 300ms;">
+<div class="w-14 h-14 bg-primary-fixed-dim text-on-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">diversity_1</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-[20px]">Family Partnership</h3>
+<p class="font-body-md text-on-surface-variant">Working hand-in-hand with parents to ensure consistency between school and home life.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section class="py-section-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-6 fade-up-element is-visible">
+<h2 class="font-headline-lg text-on-surface leading-tight">More than a school. A community built around every child.</h2>
+<div class="flex flex-col gap-4 text-body-lg text-on-surface-variant font-medium">
+<p class="">We believe that when the environment adapts to the child, rather than forcing the child to adapt to the environment, true potential is unlocked.</p>
+<p class="">Founded by educators and specialists, Serene Growth Academy provides an integrated model where therapy and education happen seamlessly side-by-side.</p>
+</div>
+<div class="mt-6">
+<a class="inline-flex items-center justify-center bg-primary text-on-primary px-8 py-3 rounded-full font-label-lg hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300" href="#">
+             Read a message from our Principal
+           </a>
+</div>
+</div>
+<div class="relative fade-up-element is-visible" style="transition-delay: 150ms;">
+<div class="grid grid-cols-2 gap-4"><div class="col-span-2 rounded-xl overflow-hidden aspect-[16/9]"><img alt="North Indian teacher and student working together" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_xYV9rOpC0Bal9nfqGb5B0n9LSTt3V8KWChpnZWTv2KtA5spN4yOWlFVqnizSfbU0RY2GqCUsqnKQKyj_I90ts5Cb7pkGqxm4s27QVvC4SXtTm6_-nymQtD6rYYVwkYb5_uExXcb1MLRi4uxYv6dlWUblSvuv_eNzoSWkVE44Xyk-Bidvu8C_evBEVoTu7H-0yq0GNtLd68B8T8pPWLSWLbG634xbnb0rDWPhx7t-Flzb2rN_8i2Wkg"></div></div>
+</div>
+</div>
+</section>
+<!-- Life at School Gallery Section -->
+<section class="py-section-desktop bg-surface-cream">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 fade-up-element is-visible">
+<h2 class="font-headline-lg text-on-surface">Life at School</h2>
+<p class="font-body-lg text-on-surface-variant mt-4">Discover how our students learn, play, and grow every day.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-up-element is-visible">
+<div class="rounded-[24px] overflow-hidden aspect-[16/9] shadow-md group">
+<img alt="Student playing with colorful blocks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VS-nQ2J3znfokGzYbxIHXAIAWvfZquD5bP4BkX_1YlAvW75xPITaht749t8TmzX0r9InlLlZ1S6NrEer2p23bdQBiU5skPA4CTj6VCD7eb9Mda-hsv6hcc0m4nE1O3JtJjyE9qeJDGxAzmw-T1coKdgFC-A1EsxpkesyUoObOJIYE26NjwzuDQU_mbIwF9EU8IFPCgMjuKmRhRGV1AmmDyMnZ8KeC7z-nQ0v0BXhgY4_UuSFlmVOwO7N0R">
+</div>
+<div class="rounded-[24px] overflow-hidden aspect-[16/9] shadow-md group">
+<img alt="Student playing on equipment outside" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XzdEh1bLneMfYdpHxDzUkFLgJIyKesu2GH2ZxqrVsj-z3UjltWsfPS56wt5q4NCxjLsIXHNnqv0b5mNstYmsQAUbAwdKcxe38llS7bPwKdGCesMzxCdLdWhotZVNG4KC9t8Q001nI7rf-90_QMWjalE5HDBbucHCobszYuwkPsaqMqRPZMKoG-oIPxdUmEl0PkCqDmTLiXu_qN9iPjmhdCbRSYGyrCr8yRY14hwktQJ7AL29iV6qMjB9s">
+</div>
+</div>
+</div>
+</section>
+<!-- Our Approach / Specialists Section -->
+<section class="py-section-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative rounded-[24px] overflow-hidden aspect-[4/3] shadow-lg fade-up-element is-visible">
+<img alt="Specialist working with student on craft activity" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxJoQQjk74Rlufs2ougmzbXgihwWEbffus8iMANed7MreNhxcis1wLnRTBexzxFqD0-RPf8ap9b0Lc4oOoihJMuA2VF44Af5s6H1vkFJolehu188cBLqgqwphSgR6QlJpKIG8R7BgFmLeKoOMnqtkwFrpmR--sn6qF4W-tKG5wlb23ZqJCA95xgOQZwC6hSnYAGoyfqRWXU0zhBqzRCVe6CJOx-k8WTq1wJ1Oas4LfNDuhXXuE6UkpRQ">
+</div>
+<div class="order-1 lg:order-2 flex flex-col gap-6 fade-up-element is-visible" style="transition-delay: 150ms;">
+<h2 class="font-headline-lg text-on-surface">Our Approach</h2>
+<p class="font-body-lg text-on-surface-variant">A dedicated team of educators and allied health professionals working collaboratively for your child. We specialize in sensory integration, emotional regulation, and building resilience in neurodivergent learners.</p>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-body-md text-on-surface">Occupational Therapy for daily independence</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-body-md text-on-surface">Speech Pathology to unlock communication potential</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-body-md text-on-surface">Clinical Psychology for anxiety management</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Contact Form Section (Styled like Reference 2) -->
+<section class="py-section-desktop bg-surface-cream" id="contact">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="max-w-[800px]">
+<h2 class="font-headline-lg text-on-surface mb-6">Contact the Serene Growth School</h2>
+<div class="font-body-lg text-on-surface-variant mb-4">
+<span class="font-bold text-on-surface">Main Site:</span> 123 Academic Way, Serenity Park ST 56789
+        </div>
+<div class="font-body-lg text-on-surface-variant mb-12">
+<span class="font-bold text-on-surface">Tel:</span> (555) 123-4567
+        </div>
+<button class="bg-secondary-fixed-dim text-on-secondary-fixed px-8 py-4 rounded-full font-label-lg hover:bg-secondary-fixed transition-colors shadow-sm mb-16">
+          Enquire with the Serene Growth School
+        </button>
+<h3 class="font-headline-lg text-on-surface mb-8">Term Dates 2026</h3>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-primary-fixed text-primary flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Term 2</h4>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-primary-fixed text-primary flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Term 3</h4>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-primary-fixed text-primary flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Term 4</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full bg-surface-container-lowest pt-section-desktop pb-24 border-t border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTPeNWL-baWd9rF-tq8RSLJCFTXOBwYL0JRM3MHUSJ7RAArtj-MGGY64ML3yZSjf4-N4xV2qmG4o1FwTiodvwy8E-M3hSnqEYIDSTfZ8ZbDO_HgD-nV4qQVV5UM5-PPI9RQNGtWRPDgYVAcSf1ZCe2YYO_mG7zfaFrkSQ5E00T9WiqTu5PW4Cgxcuo-_3JKHVoAXbLjXwDha-UQ26UXbNqu_NonLSkoV3zYgLvHpFj5KiJgzPzJknYw">
+<span class="font-headline-md text-primary">Serene Growth</span>
+</div>
+<p class="text-body-md text-on-surface-variant">Providing an elite educational standard that remains deeply human, accessible, and inclusive for neurodivergent minds.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-on-surface uppercase tracking-widest">Quick Links</h4>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Our Mission</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Admissions</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Curriculum</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Parent Portal</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-on-surface uppercase tracking-widest">Resources</h4>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Sensory Guide</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Community Blog</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">FAQ</a>
+<a class="text-body-md text-on-surface-variant hover:text-primary" href="#">Support Group</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-on-surface uppercase tracking-widest">Contact</h4>
+<p class="text-body-md text-on-surface-variant">123 Academic Way, Serenity Park, ST 56789</p>
+<p class="text-body-md text-on-surface-variant">hello@serenegrowth.edu</p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">mail</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">call</span>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-outline-variant/30 text-center text-label-md text-on-surface-variant">
+    © 2024 Serene Growth Academy. Empowering Every Mind.
+  </div>
+</footer>
+<div class="fixed bottom-6 left-6 z-50">
+<button class="bg-secondary-container text-on-secondary-container px-6 py-3 rounded-lg font-label-lg hover:bg-secondary-fixed transition-colors shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+    Subscribe
+  </button>
+</div>
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .fade-up-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fade-up-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up-element').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+
+</body></html>

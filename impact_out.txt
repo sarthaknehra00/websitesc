@@ -1,0 +1,347 @@
+<section class="relative bg-[#101010] overflow-hidden pt-20 pb-32 lg:pt-24 lg:pb-44">
+    <!-- Background decorative shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/5"></div>
+      <div class="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-secondary-container/10"></div>
+      <div class="absolute -bottom-16 right-1/4 w-80 h-80 rounded-full bg-tertiary-fixed/10"></div>
+      <!-- Animated particle dots -->
+      <div class="absolute top-16 left-16 w-3 h-3 rounded-full bg-tertiary-fixed/60" style="animation: float 5s 0.5s ease-in-out infinite;"></div>
+      <div class="absolute top-32 right-1/3 w-2 h-2 rounded-full bg-secondary-fixed/60" style="animation: float 7s 1s ease-in-out infinite;"></div>
+      <div class="absolute bottom-20 left-1/4 w-4 h-4 rounded-full bg-tertiary-fixed/40" style="animation: float 6s 0.2s ease-in-out infinite;"></div>
+      <div class="absolute top-3/4 right-16 w-2.5 h-2.5 rounded-full bg-accent-coral-pale/50" style="animation: float 4s 1.5s ease-in-out infinite;"></div>
+    </div>
+
+    <!-- Desktop hero image — right side -->
+    <div class="absolute right-0 top-0 w-5/12 h-full hidden lg:block overflow-hidden" style="clip-path: ellipse(110% 100% at 100% 50%);">
+      <img
+        alt="Happy child learning at Global Autism Learning School"
+        class="w-full h-full object-cover animate-float"
+        src="hero_upscaled.jpg"
+      >
+      <div class="absolute inset-0 bg-gradient-to-r from-[#101010] via-[#101010]/50 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div class="flex flex-col gap-6">
+        <!-- Badge -->
+        <div class="animate-slide-up d100 inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 w-fit">
+          <span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+          <span class="text-primary-fixed-dim text-label-lg uppercase tracking-widest">Delhi's Trusted Autism School</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-sans font-extrabold text-on-primary leading-tight">
+          <div class="animate-slide-up d200 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            Empowering Every
+          </div>
+          <div class="animate-slide-up d300 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            Child to <span class="text-tertiary-fixed">Learn,</span>
+          </div>
+          <div class="animate-slide-up d400 text-[42px] md:text-[52px] lg:text-[56px] tracking-tight leading-[1.1]">
+            <span class="text-secondary-fixed-dim">Grow</span> &amp; <span class="text-accent-coral-pale">Thrive</span>
+          </div>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="animate-slide-up d500 text-on-primary/85 text-[18px] leading-relaxed max-w-[500px]">
+          A specialized autism learning school in Delhi offering expert therapy, education and developmental programs to help children reach their full potential.
+        </p>
+
+        <!-- CTAs -->
+        <div class="animate-slide-up d600 flex flex-wrap gap-4 mt-4">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-primary px-8 py-4 rounded-full font-bold text-[15px] hover:bg-surface-container-low transition-all duration-300 shadow-md hover:-translate-y-1 hover:shadow-xl">
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+            Enquire Now
+          </a>
+          <a href="#programs" class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-on-primary px-8 py-4 rounded-full font-bold text-[15px] hover:bg-white/5 transition-all duration-300">
+            <span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Our Programs
+          </a>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="animate-slide-up d700 flex flex-wrap gap-6 mt-2">
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">20+</div>
+            <div class="text-on-primary/70 text-label-md">Therapy Programs</div>
+          </div>
+          <div class="w-px bg-white/20 self-stretch hidden sm:block"></div>
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">500+</div>
+            <div class="text-on-primary/70 text-label-md">Children Supported</div>
+          </div>
+          <div class="w-px bg-white/20 self-stretch hidden sm:block"></div>
+          <div class="text-center">
+            <div class="text-tertiary-fixed text-[28px] font-extrabold">98%</div>
+            <div class="text-on-primary/70 text-label-md">Parent Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile hero image -->
+      <div class="lg:hidden mt-8 relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-2xl animate-fade-in d500 blob-shape">
+        <img
+          alt="Happy child learning"
+          class="w-full h-full object-cover"
+          src="hero_upscaled.jpg"
+        >
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-12 md:h-16"><path d="M0,32L80,26.7C160,21,320,11,480,16C640,21,800,43,960,48C1120,53,1280,43,1360,37.3L1440,32L1440,60L0,60Z" fill="#101010"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST PILLARS
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a]-fixed text-primary text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Why Choose Us?</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Helping Children Reach Their Full Potential</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Every child is unique. Our expert team designs personalised programs that nurture growth at every level — academic, social, emotional and physical.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card">
+          <div class="w-14 h-14 bg-[#1a1a1a]-fixed text-primary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">person_check</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Individualised Learning</h3>
+          <p class="text-body-md text-on-surface-variant">Tailored educational pathways that respect each child's unique developmental profile and goals.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 100ms;">
+          <div class="w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">favorite</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Supportive Environment</h3>
+          <p class="text-body-md text-on-surface-variant">Sensory-friendly spaces designed to reduce anxiety and promote focused, joyful engagement.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 200ms;">
+          <div class="w-14 h-14 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">psychology</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Holistic Development</h3>
+          <p class="text-body-md text-on-surface-variant">Integrating academic, social, emotional and physical growth into every daily activity.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center gap-4 fade-up-element program-card" style="transition-delay: 300ms;">
+          <div class="w-14 h-14 bg-[#1a1a1a]-fixed-dim text-on-primary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[28px]">diversity_1</span>
+          </div>
+          <h3 class="text-headline-md text-on-surface text-[18px]">Family Partnership</h3>
+          <p class="text-body-md text-on-surface-variant">Working hand-in-hand with parents to ensure consistency between school and home life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest" id="about">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="flex flex-col gap-6 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a]-fixed text-primary text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 w-fit">About Us</span>
+        <h2 class="text-headline-lg text-on-surface leading-tight">More than a school. A community built for every child.</h2>
+        <div class="flex flex-col gap-4 text-body-lg text-on-surface-variant">
+          <p>Global Autism Learning School is a leading autism-focused institution in Delhi dedicated to empowering children on the autism spectrum through expert education and therapy.</p>
+          <p>Founded by educators and allied health professionals, our integrated model ensures that therapy and education happen seamlessly side-by-side — because we believe that when the environment adapts to the child, true potential is unlocked.</p>
+        </div>
+        <div class="mt-2">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] text-white hover:bg-[#1d4ed8] px-8 py-3 rounded-full font-bold text-label-lg hover:bg-[#151515] border-y border-[#333] hover:text-white transition-colors duration-300">
+            <span class="material-symbols-outlined text-[18px]">info</span>
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+      <div class="relative fade-up-element" style="transition-delay: 150ms;">
+        <div class="rounded-[28px] overflow-hidden aspect-[16/9] shadow-lg">
+          <img alt="Teacher and student working together" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_xYV9rOpC0Bal9nfqGb5B0n9LSTt3V8KWChpnZWTv2KtA5spN4yOWlFVqnizSfbU0RY2GqCUsqnKQKyj_I90ts5Cb7pkGqxm4s27QVvC4SXtTm6_-nymQtD6rYYVwkYb5_uExXcb1MLRi4uxYv6dlWUblSvuv_eNzoSWkVE44Xyk-Bidvu8C_evBEVoTu7H-0yq0GNtLd68B8T8pPWLSWLbG634xbnb0rDWPhx7t-Flzb2rN_8i2Wkg">
+        </div>
+        <!-- floating badge -->
+        <div class="absolute -bottom-5 -left-5 bg-surface-container-lowest rounded-2xl shadow-lg p-4 flex items-center gap-3 border border-outline-variant/30">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[20px]">verified</span>
+          </div>
+          <div>
+            <div class="font-bold text-on-surface text-[13px]">Expert Team</div>
+            <div class="text-on-surface-variant text-[12px]">15+ Specialists on staff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROGRAMS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-cream" id="programs">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a]-fixed text-primary text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Our Programs</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Structured Programs for Every Stage</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">From early intervention to independent living, we have a program designed around every child's needs and growth journey.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Program Cards -->
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card">
+          <div class="w-12 h-12 bg-[#1a1a1a]-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">child_care</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Infant Stimulation Program</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Early multi-sensory stimulation for infants to support cognitive and physical development.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:80ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">sentiment_very_satisfied</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Early Sensory Exploration</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Guided sensory play activities to build sensory processing and body awareness.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:160ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">toys</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Tiny Toddlers</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Play-based learning and socialisation skills for toddlers in a nurturing small-group setting.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:240ms;">
+          <div class="w-12 h-12 bg-[#1a1a1a]-fixed-dim rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">group</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Early Intervention Group</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Targeted group sessions to strengthen communication, behaviour and social participation.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:320ms;">
+          <div class="w-12 h-12 bg-[#1a1a1a]-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">menu_book</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Beginner Learning Group</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Introduction to pre-academic concepts through structured, hands-on activities.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:400ms;">
+          <div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-container text-[22px]">record_voice_over</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Communication &amp; Social Skills</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Building expressive language, listening, and peer interaction skills.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:480ms;">
+          <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-on-tertiary-fixed text-[22px]">calculate</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Functional Academics</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Life-relevant academic skills including literacy, numeracy and basic concepts.</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/30 flex flex-col gap-3 fade-up-element program-card" style="transition-delay:560ms;">
+          <div class="w-12 h-12 bg-[#1a1a1a]-fixed-dim rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">home</span></div>
+          <h3 class="font-bold text-on-surface text-[16px]">Independent Living Skills</h3>
+          <p class="text-body-md text-on-surface-variant text-[14px]">Daily life skills including self-care, hygiene, safety and household tasks.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest" id="services">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="inline-block bg-[#1a1a1a]-fixed text-primary text-label-md uppercase tracking-widest rounded-full px-4 py-1.5 mb-4">Our Services</span>
+        <h2 class="text-headline-lg text-on-surface mt-2">Comprehensive Therapy &amp; Support</h2>
+        <p class="text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Our multidisciplinary team provides a full spectrum of evidence-based therapeutic services tailored to each child.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service items -->
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">check</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Autism Intervention Program</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Structured ABA and developmental therapy to build foundational skills.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:60ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">record_voice_over</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Speech &amp; Language Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Unlocking verbal and non-verbal communication potential.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:120ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">accessibility_new</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Occupational Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Building daily independence, fine motor skills and sensory integration.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:180ms;">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">psychology_alt</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Behavioral Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Evidence-based strategies to reduce challenging behaviours and reinforce positive ones.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:240ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">school</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Special Education</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">IEP-driven academic support aligned with each child's learning goals.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:300ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">music_note</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Music &amp; Play Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Using music and play to develop communication, social and emotional skills.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:360ms;">
+          <div class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">palette</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Art &amp; Creative Activities</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Creative expression to boost confidence, focus and fine motor development.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:420ms;">
+          <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-secondary-container text-[18px]">family_restroom</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Parent Counseling &amp; Training</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Empowering families with tools and strategies to support their child at home.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 bg-surface-cream rounded-2xl border border-outline-variant/30 fade-up-element program-card" style="transition-delay:480ms;">
+          <div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-on-tertiary-fixed text-[18px]">sensors</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface text-[15px] mb-1">Sensory Integration Therapy</h4>
+            <p class="text-body-md text-on-surface-variant text-[14px]">Specialised therapy to improve sensory processing and regulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       IMPACT COUNTER SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="py-20 bg-[#1a1a1a] relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5"></div>
+      <div class="absolute bottom-0 left-10 w-48 h-48 rounded-full bg-tertiary-fixed/10"></div>
+    </div>
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 relative z-10">
+      <div class="text-center mb-12 fade-up-element">
+        <h2 class="text-headline-lg text-on-primary">Our Impact in Numbers
