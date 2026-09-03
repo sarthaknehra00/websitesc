@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Global Autism Learning School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f4f3ed;
+      background-image: 
+          linear-gradient(to right, #e2e0d8 1px, transparent 1px),
+          linear-gradient(to bottom, #e2e0d8 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+    }
+    .paper-box {
+      background-color: #ffffff;
+      border: 2px solid #1e293b;
+      border-radius: 14px;
+      box-shadow: 4px 4px 0px #1e293b;
+    }
+    .ink-btn {
+      background-color: #cbfc2f;
+      border: 2px solid #1e293b;
+      color: #0f172a;
+      border-radius: 9999px;
+      font-weight: 800;
+      box-shadow: 3px 3px 0px #1e293b;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .ink-btn:hover {
+      background-color: #d6ff47;
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0px #1e293b;
+    }
+    .danger-btn {
+      background-color: #fee2e2;
+      border: 2px solid #991b1b;
+      color: #991b1b;
+      border-radius: 9999px;
+      font-weight: 800;
+      box-shadow: 2px 2px 0px #991b1b;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .danger-btn:hover {
+      background-color: #fecaca;
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px #991b1b;
+    }
+    .input-field {
+      border: 2px solid #1e293b;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+      outline: none;
+      background: #ffffff;
+      width: 100%;
+    }
+    .input-field:focus {
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+      border-color: #2563eb;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+  <!-- ================= LOGIN SCREEN ================= -->
+  <div id="login-container" class="max-w-md mx-auto my-20 paper-box p-8 text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-100 border-2 border-[#1e293b] shadow-[3px_3px_0px_#1e293b] mb-6">
+      <span class="material-symbols-outlined text-3xl text-amber-700">lock</span>
+    </div>
+    <h1 class="text-2xl font-black text-[#0f172a] mb-2">School Admin Portal</h1>
+    <p class="text-sm font-medium text-[#64748b] mb-6">Global Autism Learning School Content Manager</p>
+
+    <form id="login-form" class="space-y-4 text-left">
+      <div>
+        <label class="block text-xs font-black uppercase tracking-wider text-[#1e293b] mb-1.5">Admin Password</label>
+        <input type="password" id="admin-password" class="input-field" placeholder="Enter password" required autofocus>
+      </div>
+      <div id="login-error" class="hidden text-xs font-bold text-rose-600 bg-rose-50 border border-rose-200 rounded-lg p-2.5 text-center">
+        Incorrect password. Please try again.
+      </div>
+      <button type="submit" class="ink-btn w-full py-3.5 text-sm uppercase tracking-wider mt-2">
+        Unlock Dashboard
+      </button>
+    </form>
+    <div class="mt-6 pt-4 border-t border-[#1e293b]/10">
+      <a href="index.html" class="text-xs font-bold text-blue-600 hover:underline">← Return to Website</a>
+    </div>
+  </div>
+
+  <!-- ================= DASHBOARD SCREEN ================= -->
+  <div id="dashboard-container" class="hidden max-w-6xl mx-auto space-y-8">
+    
+    <!-- Top Bar -->
+    <header class="paper-box p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <img src="logo_upscaled.png" alt="Logo" class="h-12 w-auto object-contain bg-white rounded-xl p-1 border-2 border-[#1e293b]">
+        <div>
+          <h1 class="text-xl font-black text-[#0f172a]">Content Management Portal</h1>
+          <p class="text-xs font-semibold text-[#64748b]">Global Autism Learning School • Delhi Campus</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html" target="_blank" class="ink-btn px-4 py-2 text-xs font-black gap-1.5">
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+          View Live Website
+        </a>
+        <button id="logout-btn" class="danger-btn px-4 py-2 text-xs font-black">
+          Log Out
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="flex items-center gap-3">
+      <button id="tab-blogs-btn" class="ink-btn px-6 py-2.5 text-sm font-black gap-2">
+        <span class="material-symbols-outlined text-base">article</span>
+        Manage Articles &amp; Vlogs
+      </button>
+      <button id="tab-gallery-btn" class="paper-box px-6 py-2.5 text-sm font-black gap-2 hover:bg-slate-50 transition-colors flex items-center">
+        <span class="material-symbols-outlined text-base">photo_library</span>
+        Manage Photo Gallery
+      </button>
+    </div>
+
+    <!-- ================= TAB: BLOGS ================= -->
+    <div id="tab-blogs" class="space-y-8">
+      
+      <!-- New Blog Form Card -->
+      <div class="paper-box p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#1e293b]/10">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 border-2 border-[#1e293b] flex items-center justify-center font-black text-blue-800">
+            <span class="material-symbols-outlined text-xl">post_add</span>
+          </div>
+          <div>
+            <h2 class="text-lg font-black text-[#0f172a]">Create New Article / Vlog</h2>
+            <p class="text-xs font-medium text-[#64748b]">Publish a new expert piece authored by Dr. Murli Singh or Dr. Charu Arora</p>
+          </div>
+        </div>
+
+        <form id="new-blog-form" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Article Title *</label>
+              <input type="text" id="blog-title" class="input-field" placeholder="e.g. How Speech Therapy Builds Independence" required>
+            </div>
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Author *</label>
+              <select id="blog-author" class="input-field" required>
+                <option value="Dr. Murli Singh">Dr. Murli Singh (Speech Therapist &amp; Audiologist)</option>
+                <option value="Dr. Charu Arora">Dr. Charu Arora (Occupational Therapist)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Category *</label>
+              <select id="blog-category" class="input-field" required>
+                <option value="Speech Therapy">Speech Therapy</option>
+                <option value="Occupational Therapy">Occupational Therapy</option>
+                <option value="Special Education">Special Education</option>
+                <option value="Early Intervention">Early Intervention</option>
+                <option value="Sensory Integration">Sensory Integration</option>
+                <option value="Parenting Guidance">Parenting Guidance</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Estimated Read Time</label>
+              <input type="text" id="blog-readtime" class="input-field" placeholder="e.g. 4 min read" value="4 min read">
+            </div>
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Publication Date</label>
+              <input type="date" id="blog-date" class="input-field">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Cover Image (Upload File or Enter URL)</label>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="file" id="blog-img-file" accept="image/*" class="input-field py-2 text-xs">
+              <input type="url" id="blog-img-url" class="input-field" placeholder="Or enter image URL">
+            </div>
+            <div id="blog-img-preview-container" class="mt-3 hidden">
+              <img id="blog-img-preview" class="h-28 w-auto rounded-lg border-2 border-[#1e293b] object-cover">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Brief Excerpt / Summary *</label>
+            <textarea id="blog-excerpt" rows="2" class="input-field" placeholder="1-2 sentences summarizing the key takeaway for parents..." required></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Full Article Content *</label>
+            <textarea id="blog-content" rows="6" class="input-field font-normal text-sm" placeholder="Write the full article content here. Separate paragraphs with blank lines." required></textarea>
+          </div>
+
+          <div class="flex justify-end pt-3">
+            <button type="submit" class="ink-btn px-8 py-3.5 text-sm font-black gap-2">
+              <span class="material-symbols-outlined text-lg">publish</span>
+              Publish Article
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Existing Blogs List -->
+      <div class="paper-box p-6 md:p-8">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1e293b]/10">
+          <div>
+            <h2 class="text-lg font-black text-[#0f172a]">Active Articles &amp; Vlogs</h2>
+            <p class="text-xs font-medium text-[#64748b]">Articles currently visible on the live website</p>
+          </div>
+          <span id="blogs-count-badge" class="px-3 py-1 bg-amber-100 border-2 border-[#1e293b] rounded-full text-xs font-black">
+            0 Articles
+          </span>
+        </div>
+
+        <div id="blogs-list" class="space-y-4">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= TAB: GALLERY ================= -->
+    <div id="tab-gallery" class="hidden space-y-8">
+      
+      <!-- New Photo Upload Card -->
+      <div class="paper-box p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#1e293b]/10">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 border-2 border-[#1e293b] flex items-center justify-center font-black text-emerald-800">
+            <span class="material-symbols-outlined text-xl">add_photo_alternate</span>
+          </div>
+          <div>
+            <h2 class="text-lg font-black text-[#0f172a]">Upload Photo to Campus Gallery</h2>
+            <p class="text-xs font-medium text-[#64748b]">Add photos of the school campus, therapy rooms, sensory activities, or events</p>
+          </div>
+        </div>
+
+        <form id="new-photo-form" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Select Image File *</label>
+              <input type="file" id="gallery-img-file" accept="image/*" class="input-field py-2 text-xs">
+              <div class="text-xs text-[#64748b] mt-1 font-semibold">Or enter image URL below:</div>
+              <input type="url" id="gallery-img-url" class="input-field mt-1.5" placeholder="https://example.com/photo.jpg">
+            </div>
+            <div>
+              <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Photo Caption / Title *</label>
+              <input type="text" id="gallery-caption" class="input-field" placeholder="e.g. Global Autism Learning School Campus" required>
+              
+              <label class="block text-xs font-black uppercase text-[#1e293b] mt-4 mb-1.5">Tag / Category</label>
+              <select id="gallery-category" class="input-field">
+                <option value="Campus">Campus &amp; Facilities</option>
+                <option value="Therapy">Therapy in Action</option>
+                <option value="Sensory">Sensory Exploration</option>
+                <option value="Activities">Activities &amp; Yoga</option>
+                <option value="Events">Celebrations &amp; Events</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preview -->
+          <div id="gallery-preview-box" class="hidden">
+            <label class="block text-xs font-black uppercase text-[#1e293b] mb-1.5">Image Preview</label>
+            <img id="gallery-preview-img" class="h-44 w-auto rounded-xl border-2 border-[#1e293b] object-cover shadow-[2px_2px_0px_#1e293b]">
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button type="submit" class="ink-btn px-8 py-3.5 text-sm font-black gap-2">
+              <span class="material-symbols-outlined text-lg">cloud_upload</span>
+              Add to Gallery
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Existing Gallery Grid -->
+      <div class="paper-box p-6 md:p-8">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#1e293b]/10">
+          <div>
+            <h2 class="text-lg font-black text-[#0f172a]">Campus Photo Gallery</h2>
+            <p class="text-xs font-medium text-[#64748b]">Photos currently displayed on the website</p>
+          </div>
+          <span id="gallery-count-badge" class="px-3 py-1 bg-emerald-100 border-2 border-[#1e293b] rounded-full text-xs font-black">
+            1 Photo
+          </span>
+        </div>
+
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Toast Alert -->
+  <div id="toast" class="fixed bottom-6 right-6 paper-box px-5 py-3.5 bg-emerald-100 border-2 border-[#1e293b] shadow-[4px_4px_0px_#1e293b] text-emerald-950 font-black text-sm flex items-center gap-2 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+    <span class="material-symbols-outlined text-emerald-700">check_circle</span>
+    <span id="toast-msg">Action completed!</span>
+  </div>
+
+  <script>
+    // Supabase Cloud Configuration
+    const SUPABASE_URL = 'https://eokofzaaouzwgruevgqn.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_-dvDwpU1Ozt-s7n-wWwCug_1CXbt0x2';
+    const ADMIN_PASS = 'globalschooladmin.pass';
+
+    let supabase = null;
+    try {
+      if (window.supabase) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      }
+    } catch(e) {
+      console.error('Supabase init error:', e);
+    }
+
+    // Helpers
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Check Login State
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem('gals_admin_logged_in') === 'true';
+      if (isAuth) {
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('dashboard-container').classList.remove('hidden');
+        renderBlogs();
+        renderGallery();
+      } else {
+        document.getElementById('login-container').classList.remove('hidden');
+        document.getElementById('dashboard-container').classList.add('hidden');
+      }
+    }
+
+    // Login Form Submit
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = document.getElementById('admin-password').value;
+      if (entered === ADMIN_PASS) {
+        sessionStorage.setItem('gals_admin_logged_in', 'true');
+        document.getElementById('login-error').classList.add('hidden');
+        checkAuth();
+        showToast('Connected to Supabase Cloud Database!');
+      } else {
+        document.getElementById('login-error').classList.remove('hidden');
+      }
+    });
+
+    // Logout
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem('gals_admin_logged_in');
+      checkAuth();
+    });
+
+    // Tab Switching
+    const tabBlogsBtn = document.getElementById('tab-blogs-btn');
+    const tabGalleryBtn = document.getElementById('tab-gallery-btn');
+    const tabBlogs = document.getElementById('tab-blogs');
+    const tabGallery = document.getElementById('tab-gallery');
+
+    tabBlogsBtn.addEventListener('click', () => {
+      tabBlogs.classList.remove('hidden');
+      tabGallery.classList.add('hidden');
+      tabBlogsBtn.className = 'ink-btn px-6 py-2.5 text-sm font-black gap-2';
+      tabGalleryBtn.className = 'paper-box px-6 py-2.5 text-sm font-black gap-2 hover:bg-slate-50 transition-colors flex items-center';
+    });
+
+    tabGalleryBtn.addEventListener('click', () => {
+      tabGallery.classList.remove('hidden');
+      tabBlogs.classList.add('hidden');
+      tabGalleryBtn.className = 'ink-btn px-6 py-2.5 text-sm font-black gap-2';
+      tabBlogsBtn.className = 'paper-box px-6 py-2.5 text-sm font-black gap-2 hover:bg-slate-50 transition-colors flex items-center';
+    });
+
+    // Set Default Date to Today
+    document.getElementById('blog-date').value = new Date().toISOString().split('T')[0];
+
+    // Image preview handler for blog
+    const blogImgFile = document.getElementById('blog-img-file');
+    const blogImgUrl = document.getElementById('blog-img-url');
+    let currentBlogImageData = '';
+
+    blogImgFile.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          currentBlogImageData = event.target.result;
+          document.getElementById('blog-img-preview').src = currentBlogImageData;
+          document.getElementById('blog-img-preview-container').classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    blogImgUrl.addEventListener('input', (e) => {
+      if (e.target.value) {
+        currentBlogImageData = e.target.value;
+        document.getElementById('blog-img-preview').src = currentBlogImageData;
+        document.getElementById('blog-img-preview-container').classList.remove('hidden');
+      }
+    });
+
+    // Handle New Blog Submission to Supabase Cloud
+    document.getElementById('new-blog-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Publishing to Cloud...';
+
+      const author = document.getElementById('blog-author').value;
+      const role = author.includes('Murli') ? 'Speech Therapist & Audiologist' : 'Occupational Therapist (OT)';
+      const dateVal = document.getElementById('blog-date').value;
+      const formattedDate = dateVal ? new Date(dateVal).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Recently Published';
+
+      const newArticle = {
+        id: 'blog-' + Date.now(),
+        title: document.getElementById('blog-title').value.trim(),
+        author: author,
+        author_role: role,
+        category: document.getElementById('blog-category').value,
+        read_time: document.getElementById('blog-readtime').value.trim() || '4 min read',
+        date: formattedDate,
+        image: currentBlogImageData || (author.includes('Murli') ? 'dr_murli_singh.jpg' : 'dr_charu_arora.jpg'),
+        excerpt: document.getElementById('blog-excerpt').value.trim(),
+        content: document.getElementById('blog-content').value.trim()
+      };
+
+      try {
+        const { data, error } = await supabase.from('blogs').insert([newArticle]);
+        if (error) throw error;
+
+        // Reset form
+        document.getElementById('new-blog-form').reset();
+        currentBlogImageData = '';
+        document.getElementById('blog-img-preview-container').classList.add('hidden');
+        document.getElementById('blog-date').value = new Date().toISOString().split('T')[0];
+
+        await renderBlogs();
+        showToast('Article published to Supabase Cloud live!');
+      } catch (err) {
+        console.error('Publish error:', err);
+        alert('Could not publish article to cloud: ' + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">publish</span> Publish Article';
+      }
+    });
+
+    // Render Blogs List in Admin from Supabase Cloud
+    async function renderBlogs() {
+      const container = document.getElementById('blogs-list');
+      container.innerHTML = '<div class="text-center py-6 text-sm text-[#64748b] font-bold">Loading articles from cloud database...</div>';
+
+      try {
+        const { data: blogs, error } = await supabase
+          .from('blogs')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        document.getElementById('blogs-count-badge').innerText = `${blogs.length} Article${blogs.length === 1 ? '' : 's'}`;
+
+        if (!blogs || blogs.length === 0) {
+          container.innerHTML = `<div class="text-center py-8 text-[#64748b] font-medium text-sm">No articles found in cloud database. Use the form above to publish one!</div>`;
+          return;
+        }
+
+        container.innerHTML = blogs.map((blog) => `
+          <div class="border-2 border-[#1e293b] rounded-xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-slate-50/60 hover:bg-slate-50 transition-colors">
+            <div class="flex items-start gap-4">
+              <img src="${blog.image}" class="w-16 h-16 rounded-lg object-cover border-2 border-[#1e293b] flex-shrink-0" onerror="this.src='logo_upscaled.png'">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-white border border-[#1e293b]">${blog.category}</span>
+                  <span class="text-xs text-[#64748b] font-semibold">${blog.date}</span>
+                  <span class="text-xs text-[#64748b]">• ${blog.read_time || blog.readTime}</span>
+                </div>
+                <h3 class="text-sm font-black text-[#0f172a]">${blog.title}</h3>
+                <p class="text-xs font-semibold text-blue-700 mt-0.5">By ${blog.author} (${blog.author_role || blog.authorRole})</p>
+              </div>
+            </div>
+            <button onclick="deleteBlog('${blog.id}')" class="danger-btn px-4 py-2 text-xs font-black flex items-center gap-1 flex-shrink-0">
+              <span class="material-symbols-outlined text-sm">delete</span>
+              Delete
+            </button>
+          </div>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = `<div class="text-center py-6 text-sm text-rose-600 font-bold">Cloud fetch error: ${err.message}</div>`;
+      }
+    }
+
+    window.deleteBlog = async function(id) {
+      if (confirm('Are you sure you want to permanently delete this article from Supabase cloud?')) {
+        try {
+          const { error } = await supabase.from('blogs').delete().eq('id', id);
+          if (error) throw error;
+          await renderBlogs();
+          showToast('Article deleted from cloud database.');
+        } catch (err) {
+          alert('Delete error: ' + err.message);
+        }
+      }
+    };
+
+    // ================= GALLERY LOGIC =================
+    const galleryImgFile = document.getElementById('gallery-img-file');
+    const galleryImgUrl = document.getElementById('gallery-img-url');
+    let currentGalleryImageData = '';
+
+    galleryImgFile.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          currentGalleryImageData = event.target.result;
+          document.getElementById('gallery-preview-img').src = currentGalleryImageData;
+          document.getElementById('gallery-preview-box').classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    galleryImgUrl.addEventListener('input', (e) => {
+      if (e.target.value) {
+        currentGalleryImageData = e.target.value;
+        document.getElementById('gallery-preview-img').src = currentGalleryImageData;
+        document.getElementById('gallery-preview-box').classList.remove('hidden');
+      }
+    });
+
+    document.getElementById('new-photo-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!currentGalleryImageData) {
+        alert('Please choose an image file or enter an image URL.');
+        return;
+      }
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Uploading to Cloud...';
+
+      const newPhoto = {
+        id: 'gal-' + Date.now(),
+        src: currentGalleryImageData,
+        caption: document.getElementById('gallery-caption').value.trim(),
+        category: document.getElementById('gallery-category').value,
+        date: new Date().toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
+      };
+
+      try {
+        const { error } = await supabase.from('gallery').insert([newPhoto]);
+        if (error) throw error;
+
+        document.getElementById('new-photo-form').reset();
+        currentGalleryImageData = '';
+        document.getElementById('gallery-preview-box').classList.add('hidden');
+
+        await renderGallery();
+        showToast('Photo uploaded to Supabase Cloud live!');
+      } catch (err) {
+        console.error('Gallery upload error:', err);
+        alert('Could not upload photo: ' + err.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">cloud_upload</span> Add to Gallery';
+      }
+    });
+
+    async function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '<div class="col-span-full text-center py-6 text-sm text-[#64748b] font-bold">Loading gallery from cloud database...</div>';
+
+      try {
+        const { data: items, error } = await supabase
+          .from('gallery')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        document.getElementById('gallery-count-badge').innerText = `${items.length} Photo${items.length === 1 ? '' : 's'}`;
+
+        if (!items || items.length === 0) {
+          grid.innerHTML = `<div class="col-span-full text-center py-8 text-[#64748b] font-medium text-sm">No photos uploaded to cloud yet.</div>`;
+          return;
+        }
+
+        grid.innerHTML = items.map(photo => `
+          <div class="border-2 border-[#1e293b] rounded-xl overflow-hidden bg-white shadow-[2px_2px_0px_#1e293b] flex flex-col justify-between">
+            <div class="relative aspect-video overflow-hidden bg-slate-100">
+              <img src="${photo.src}" class="w-full h-full object-cover" onerror="this.src='logo_upscaled.png'">
+              <span class="absolute top-2 left-2 bg-white/95 border border-[#1e293b] text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-sm">
+                ${photo.category || 'Campus'}
+              </span>
+            </div>
+            <div class="p-4 flex items-center justify-between gap-2 border-t border-[#1e293b]/10 bg-slate-50/50">
+              <p class="text-xs font-bold text-[#0f172a] truncate">${photo.caption}</p>
+              <button onclick="deleteGalleryPhoto('${photo.id}')" class="text-rose-600 hover:text-rose-800 p-1 rounded hover:bg-rose-50" title="Delete Photo">
+                <span class="material-symbols-outlined text-base">delete</span>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        grid.innerHTML = `<div class="col-span-full text-center py-6 text-sm text-rose-600 font-bold">Cloud fetch error: ${err.message}</div>`;
+      }
+    }
+
+    window.deleteGalleryPhoto = async function(id) {
+      if (confirm('Permanently delete this photo from Supabase cloud?')) {
+        try {
+          const { error } = await supabase.from('gallery').delete().eq('id', id);
+          if (error) throw error;
+          await renderGallery();
+          showToast('Photo removed from cloud.');
+        } catch (err) {
+          alert('Delete error: ' + err.message);
+        }
+      }
+    };
+
+    // Initialize
+    checkAuth();
+  </script>
+</body>
+</html>
