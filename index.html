@@ -1683,8 +1683,8 @@
         <!-- Parent Name & Phone -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Parent / Guardian Name *</label>
-            <input type="text" name="Parent Name" id="apt-name" required placeholder="e.g. Rajesh Sharma" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Parent / Guardian Name</label>
+            <input type="text" name="Parent Name" id="apt-name" placeholder="e.g. Rajesh Sharma" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
           </div>
           <div>
             <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Phone / WhatsApp Number *</label>
@@ -1692,12 +1692,16 @@
           </div>
         </div>
 
-        <!-- Child Age & Service -->
+        <!-- Optional Email & Child Age -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Age / Grade *</label>
-            <select name="Child Age" id="apt-age" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
-              <option value="" disabled selected>Select Age Group</option>
+            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Email Address <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
+            <input type="email" name="Email (Optional)" id="apt-email" placeholder="parent@example.com (optional)" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+          </div>
+          <div>
+            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Age / Grade</label>
+            <select name="Child Age" id="apt-age" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+              <option value="Not Specified">Select Age Group (Optional)</option>
               <option value="Under 3 years (Early Intervention)">Under 3 years (Early Intervention)</option>
               <option value="3 - 5 years (Toddler / Preschool)">3 - 5 years (Toddler / Preschool)</option>
               <option value="6 - 9 years (Primary School)">6 - 9 years (Primary School)</option>
@@ -1705,28 +1709,30 @@
               <option value="15+ years (Teens & Vocational)">15+ years (Teens & Vocational)</option>
             </select>
           </div>
-          <div>
-            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Service Needed *</label>
-            <select name="Service Needed" id="apt-service" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
-              <option value="Comprehensive Autism Assessment" selected>Comprehensive Autism Assessment</option>
-              <option value="Speech Therapy (Dr. Murli Singh)">Speech Therapy (Dr. Murli Singh)</option>
-              <option value="Occupational Therapy & OT (Dr. Charu Arora)">OT & Sensory Integration (Dr. Charu Arora)</option>
-              <option value="Special Education & School Readiness">Special Education & School Readiness</option>
-              <option value="Kid Gym & Physical Movement">Kid Gym & Physical Movement</option>
-              <option value="School Campus Visit & Meeting">Campus Tour & Meeting</option>
-            </select>
-          </div>
         </div>
 
-        <!-- Preferred Date & Time -->
+        <!-- Service Needed -->
+        <div>
+          <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Service / Program Needed</label>
+          <select name="Service Needed" id="apt-service" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+            <option value="Comprehensive Autism Assessment" selected>Comprehensive Autism Assessment</option>
+            <option value="Speech Therapy (Dr. Murli Singh)">Speech Therapy (Dr. Murli Singh)</option>
+            <option value="Occupational Therapy & OT (Dr. Charu Arora)">OT & Sensory Integration (Dr. Charu Arora)</option>
+            <option value="Special Education & School Readiness">Special Education & School Readiness</option>
+            <option value="Kid Gym & Physical Movement">Kid Gym & Physical Movement</option>
+            <option value="School Campus Visit & Meeting">Campus Tour & Meeting</option>
+          </select>
+        </div>
+
+        <!-- Optional Preferred Date & Time -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Date *</label>
-            <input type="date" name="Preferred Date" id="apt-date" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Date <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
+            <input type="date" name="Preferred Date" id="apt-date" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
           </div>
           <div>
-            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Time Slot *</label>
-            <select name="Time Slot" id="apt-time" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+            <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Time Slot</label>
+            <select name="Time Slot" id="apt-time" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
               <option value="Morning (09:30 AM - 01:00 PM)" selected>Morning (09:30 AM - 01:00 PM)</option>
               <option value="Afternoon (02:00 PM - 05:30 PM)">Afternoon (02:00 PM - 05:30 PM)</option>
               <option value="Saturday Special Visit (10:00 AM - 02:00 PM)">Saturday Special Visit (10:00 AM - 02:00 PM)</option>
@@ -1736,7 +1742,7 @@
 
         <!-- Optional Message -->
         <div>
-          <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Needs / Notes (Optional)</label>
+          <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Needs / Notes <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
           <textarea name="Child Needs / Notes" id="apt-message" rows="2" placeholder="Tell us briefly about your child's needs or any specific therapist..." class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50 resize-none"></textarea>
         </div>
 
@@ -1930,8 +1936,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Parent Name *</label>
-                <input type="text" name="Parent Name" id="inline-apt-name" required placeholder="Your full name" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Parent Name</label>
+                <input type="text" name="Parent Name" id="inline-apt-name" placeholder="Your full name" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
               </div>
               <div>
                 <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Phone / WhatsApp *</label>
@@ -1941,9 +1947,13 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Age Group *</label>
-                <select name="Child Age" id="inline-apt-age" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
-                  <option value="" disabled selected>Select Age Group</option>
+                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Email Address <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
+                <input type="email" name="Email (Optional)" id="inline-apt-email" placeholder="parent@example.com (optional)" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+              </div>
+              <div>
+                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Child's Age Group</label>
+                <select name="Child Age" id="inline-apt-age" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+                  <option value="Not Specified">Select Age Group (Optional)</option>
                   <option value="Under 3 years (Early Intervention)">Under 3 years (Early Intervention)</option>
                   <option value="3 - 5 years (Toddler / Preschool)">3 - 5 years (Toddler / Preschool)</option>
                   <option value="6 - 9 years (Primary School)">6 - 9 years (Primary School)</option>
@@ -1951,37 +1961,29 @@
                   <option value="15+ years (Teens & Vocational)">15+ years (Teens & Vocational)</option>
                 </select>
               </div>
-              <div>
-                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Service / Program *</label>
-                <select name="Service Needed" id="inline-apt-service" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
-                  <option value="Comprehensive Autism Developmental Assessment" selected>Comprehensive Autism Assessment</option>
-                  <option value="Speech & Language Therapy (Dr. Murli Singh)">Speech Therapy (Dr. Murli Singh)</option>
-                  <option value="Occupational Therapy & Sensory (Dr. Charu Arora)">OT & Sensory Integration (Dr. Charu Arora)</option>
-                  <option value="Special Education & School Readiness">Special Education & School Readiness</option>
-                  <option value="Kid Gym & Physical Motor Development">Kid Gym & Physical Movement</option>
-                  <option value="Campus Tour & Meeting">Campus Tour & Meeting</option>
-                </select>
-              </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Date *</label>
-                <input type="date" name="Preferred Date" id="inline-apt-date" required class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Service Needed</label>
+                <select name="Service Needed" id="inline-apt-service" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
+                  <option value="Comprehensive Autism Assessment" selected>Comprehensive Autism Assessment</option>
+                  <option value="Speech Therapy (Dr. Murli Singh)">Speech Therapy (Dr. Murli Singh)</option>
+                  <option value="Occupational Therapy & OT (Dr. Charu Arora)">OT & Sensory Integration (Dr. Charu Arora)</option>
+                  <option value="Special Education & School Readiness">Special Education & School Readiness</option>
+                  <option value="Kid Gym & Physical Movement">Kid Gym & Physical Movement</option>
+                  <option value="Campus Tour & Meeting">Campus Tour & Meeting</option>
+                </select>
               </div>
               <div>
-                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Time *</label>
-                <select name="Time Slot" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
-                  <option value="Morning (09:30 AM - 01:00 PM)" selected>Morning (09:30 AM - 01:00 PM)</option>
-                  <option value="Afternoon (02:00 PM - 05:30 PM)">Afternoon (02:00 PM - 05:30 PM)</option>
-                  <option value="Saturday Special Visit">Saturday Special Visit</option>
-                </select>
+                <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Preferred Date <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
+                <input type="date" name="Preferred Date" id="inline-apt-date" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50">
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Message / Child's Specific Needs (Optional)</label>
-              <textarea name="Child Needs / Notes" id="inline-apt-message" rows="2" placeholder="Any specific requirements or notes..." class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50 resize-none"></textarea>
+              <label class="block text-xs font-black text-[#0f172a] uppercase tracking-wider mb-1">Message / Child's Specific Needs <span class="text-[#64748b] font-normal lowercase">(optional)</span></label>
+              <textarea name="Child Needs / Notes" id="inline-apt-message" rows="2" placeholder="Any specific requirements or notes (optional)..." class="w-full px-3.5 py-2.5 rounded-xl border-2 border-[#1e293b] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-slate-50/50 resize-none"></textarea>
             </div>
 
             <div class="pt-2 flex flex-col sm:flex-row gap-3">
